@@ -7,7 +7,7 @@ var expect = chai.expect;
 chai.use(sinonChai);
 
 var main = require("../lib/main.js");
-
+var lyric = require("../lib/lyric.js");
 
 describe("测试描述", function(){
     sinon.spy(console, 'log');
@@ -20,12 +20,10 @@ describe("测试描述", function(){
         expect(expect_string).to.equal(result);
     });
 
-    it("测试用例2", function(){
+    it("测试用例2",() =>{
 
-        main();
-        var result = _.flatten(console.log.args).join("\n");
-        var expect_string = '';
+        var result = main(99);
 
-        expect(expect_string).to.equal(result);
+        expect(lyric()).to.equal(result);
     });
 });
